@@ -1,0 +1,37 @@
+{% if page.categories %}
+  {% capture categories %}
+    {% for category in page.categories %}
+      <span class="label  label--category">{{ category }}</span>{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+  {% endcapture %}
+{% elsif page.category %}
+  {% capture categories %}
+    <span class="label  label--category">{{ page.category }}</span>
+  {% endcapture %}
+{% endif %}
+
+<small class="small  post-meta">
+  {{ categories | append: "&nbsp;&middot;&nbsp;" }}<time datetime="{{ page.date | date_to_xmlschema }}" class="time">{{ page.date | date_to_string }}</time>
+</small>
+
+<small> &nbsp; Author : &nbsp; </small>
+
+{% if page.author == "Andy" %}
+<small class = "andy">Andy</small>
+{% endif %}
+
+{% if page.author == "Fred" %}
+<small class = "fred">Fred</small>
+{% endif %}
+
+{% if page.author == "Saya" %}
+<small class = "saya">Saya</small>
+{% endif %}
+
+{% if page.author == "Benoit" %}
+<small class ="benoit"> Benoit </small>
+{% endif %}
+
+{% if page.author == "Anonymous" %}
+<small>l’auteur est timide !</small>
+{% endif %}
